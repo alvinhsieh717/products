@@ -1,10 +1,8 @@
-# 開場(檢查檔案)
+# 讀取檔案
 import os
 products = []
-if os.path.isfile('products.csv'):
+if os.path.isfile('products.csv'): # 檢查檔案)
 	print('找到檔案')
-
-# 讀取檔案
 	with open('products.csv', 'r', encoding='utf-8') as f:
 		for line in f:
 			if '商品,價格' in line:
@@ -36,6 +34,6 @@ for p in products:
 
 # 寫入檔案
 with open('products.csv', 'w', encoding='utf-8') as f:
-	f.write('商品, 價格\n')
+	f.write('商品,價格\n')
 	for p in products:
 		f.write(p[0] + ',' + str(p[1]) + '\n')
